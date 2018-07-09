@@ -11,13 +11,6 @@ import './App.css';
 class App extends Component {
   state = {
     animals: [],
-    selectedAnimalId: -1,
-  };
-
-  animalSelectEvent = (id) => {
-    this.setState({
-      selectedAnimalId: id,
-    });
   };
 
   componentDidMount () {
@@ -38,7 +31,6 @@ class App extends Component {
         <div className="col-md-8">
           <Animals
             animals={this.state.animals}
-            onAnimalSelection={this.animalSelectEvent}
           />
         </div>
         <div className="col-md-4">
