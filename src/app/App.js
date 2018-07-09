@@ -29,7 +29,9 @@ class App extends Component {
     return (
       <div className="App">
         <div className="col-md-8">
-          <Animals animals={this.state.animals}/>
+          <Animals
+            animals={this.state.animals}
+          />
         </div>
         <div className="col-md-4">
           <Form />
