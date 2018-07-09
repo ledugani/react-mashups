@@ -20,12 +20,6 @@ class AnimalItem extends React.Component {
   render () {
     const {animal} = this.props;
     return (
-      // <li className='AnimalItem text-center' onClick={this.animalClick}>
-      //   <span className="col-xs-2"><strong>Animal {index + 1}:</strong></span>
-      //   <span className="col-xs-4"><img src={animal.imgUrl} alt={animal.description} /></span>
-      //   <span className="col-xs-3">{animal.name}</span>
-      //   <span className="col-xs-3">{animal.description}</span>
-      // </li>
 
       <div className='panel panel-default AnimalItem col-md-4' onClick={this.animalClick}>
         <div className='panel-heading'>
