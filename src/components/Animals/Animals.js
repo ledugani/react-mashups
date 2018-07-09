@@ -1,14 +1,26 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
+import AnimalItem from '../AnimalItem/AnimalItem';
+import {animalShape} from '../../props/animalProps';
 import './Animals.css';
 
 class Animals extends React.Component {
+  static propTypes = {
+    animals: PropTypes.arrayOf(animalShape),
+    onAnimalSelection: PropTypes.func,
+  };
+
   render () {
     const {animals} = this.props;
 
-    const animalsItemComponents = animals.map((animalItem) => {
+    const animalsItemComponents = animals.map((animal, index) => {
       return (
-        <li key={animalItem.id}>{animalItem.name}</li>
+        <AnimalItem
+          animal={animal}
+          index={index}
+          key={animal.id}
+        />
       );
     });
 

@@ -11,6 +11,13 @@ import './App.css';
 class App extends Component {
   state = {
     animals: [],
+    selectedAnimalId: -1,
+  };
+
+  animalSelectEvent = (id) => {
+    this.setState({
+      selectedAnimalId: id,
+    });
   };
 
   componentDidMount () {
@@ -29,7 +36,10 @@ class App extends Component {
     return (
       <div className="App">
         <div className="col-md-8">
-          <Animals animals={this.state.animals}/>
+          <Animals
+            animals={this.state.animals}
+            onListingSelection={this.animalSelectEvent}
+          />
         </div>
         <div className="col-md-4">
           <Form />
