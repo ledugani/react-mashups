@@ -12,7 +12,7 @@ class Animals extends React.Component {
   };
 
   render () {
-    const {animals} = this.props;
+    const {animals, onAnimalSelection} = this.props;
 
     const animalsItemComponents = animals.map((animal, index) => {
       return (
@@ -20,6 +20,7 @@ class Animals extends React.Component {
           animal={animal}
           index={index}
           key={animal.id}
+          onSelect={onAnimalSelection}
         />
       );
     });
