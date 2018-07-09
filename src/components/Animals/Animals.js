@@ -8,11 +8,10 @@ import './Animals.css';
 class Animals extends React.Component {
   static propTypes = {
     animals: PropTypes.arrayOf(animalShape),
-    onAnimalSelection: PropTypes.func,
   };
 
   render () {
-    const {animals, onAnimalSelection} = this.props;
+    const {animals} = this.props;
 
     const animalsItemComponents = animals.map((animal, index) => {
       return (
@@ -20,7 +19,6 @@ class Animals extends React.Component {
           animal={animal}
           index={index}
           key={animal.id}
-          onSelect={onAnimalSelection}
         />
       );
     });

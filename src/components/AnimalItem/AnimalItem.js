@@ -29,8 +29,6 @@ class AnimalItem extends React.Component {
           <img src={animal.imgUrl} alt={animal.description} />
           <br />
           {animal.description}
-          <br />
-          <button type="button" className="btn btn-primary" onClick={this.animalClick}>Primary</button>
         </div>
       </div>
     );
