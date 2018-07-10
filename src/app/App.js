@@ -15,8 +15,11 @@ class App extends Component {
 
   formSubmitEvent = (newMashup) => {
     animalsRequest.postRequest(newMashup)
-      .then((mashups) => {
-        this.setState({mashups});
+      .then(() => {
+        animalsRequest.getRequest()
+          .then((mashups) => {
+            this.setState({mashups});
+          })
       })
       .catch((errr) => {
         console.error('error posting animal to firebase', errr);
