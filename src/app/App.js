@@ -13,6 +13,16 @@ class App extends Component {
     animals: [],
   };
 
+  formSubmitEvent = (newMashup) => {
+    animalsRequest.postRequest(newMashup)
+      .then((mashups) => {
+        this.setState({mashups});
+      })
+      .catch((errr) => {
+        console.error('error posting animal to firebase', errr);
+      })
+  }
+
   componentDidMount () {
     connection();
 
@@ -32,7 +42,9 @@ class App extends Component {
           <Animals animals={this.state.animals}/>
         </div>
         <div className="col-md-4">
-          <Form />
+          <Form
+            onSubmit={this.formSubmitEvent}
+          />
         </div>
       </div>
     );

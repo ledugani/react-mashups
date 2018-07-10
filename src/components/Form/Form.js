@@ -40,7 +40,7 @@ class Form extends React.Component {
       <div className="Form">
         <h1 className="FormHeader">Form</h1>
         <form onSubmit={this.formSubmit}>
-          <div className="col-md-9 .col-md-offset-3">
+          <div className="col-md-9">
             <fieldset>
               <label htmlFor="name">Name:</label>
               <input
@@ -77,6 +77,7 @@ class Form extends React.Component {
               </textarea>
             </fieldset>
           </div>
+          <button className="btn btn-primary col-xs-6 col-xs-offset-3">Save Mashup</button>
         </form>
       </div>
     );
