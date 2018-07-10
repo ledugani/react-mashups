@@ -19,7 +19,7 @@ class App extends Component {
         animalsRequest.getRequest()
           .then((mashups) => {
             this.setState({mashups});
-          })
+          });
       })
       .catch((errr) => {
         console.error('error posting animal to firebase', errr);
