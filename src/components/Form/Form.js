@@ -1,20 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './Form.css';
 
+const defaultMashup = {
+  name: '',
+  imgUrl: '',
+  description: '',
+};
+
 class Form extends React.Component {
-  state = {
-    newMashup: {
-      name: '',
-      imgUrl: '',
-      description: '',
-    }
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
   }
 
-  formSubmit = (e) => {
-    const {onSubmit} = this.props;
-    e.preventDefault();
-    onSubmit(this.state.newMashup);
+  state = {
+    newMashup: defaultMashup
   }
 
   formFieldStringState = (name, e) => {
@@ -33,6 +34,23 @@ class Form extends React.Component {
 
   descriptionChange = (e) => {
     this.formFieldStringState('description', e);
+  }
+
+  formSubmit = (e) => {
+    const {onSubmit} = this.props;
+    const {newMashup} = this.state;
+
+    e.preventDefault();
+    if (
+      newMashup.name &&
+      newMashup.imgUrl &&
+      newMashup.description
+    ) {
+    onSubmit(this.state.newMashup);
+    this.setState({newMashup: defaultMashup});
+    } else {
+      alert('Fill out all sections of mashup form')
+    }
   }
 
   render () {
@@ -77,7 +95,9 @@ class Form extends React.Component {
               </textarea>
             </fieldset>
           </div>
-          <button className="btn btn-primary col-xs-6 col-xs-offset-3">Save Mashup</button>
+          <button className="btn btn-primary col-xs-6 col-xs-offset-3">
+            Save Mashup
+          </button>
         </form>
       </div>
     );
