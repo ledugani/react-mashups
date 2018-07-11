@@ -24,7 +24,7 @@ const getRequest = () => {
 const postRequest = (animal) => {
   return new Promise((resolve, reject) => {
     axios
-      .post(`${constants.firebaseConfig.databaseURL}/mashups.json`, animal)
+      .post(`${constants.FirebaseConfig.databaseURL}/mashups.json`, animal)
       .then((results) => {
         resolve(results.data);
       })
