@@ -17,8 +17,8 @@ class App extends Component {
     animalsRequest.postRequest(newMashup)
       .then(() => {
         animalsRequest.getRequest()
-          .then((mashups) => {
-            this.setState({mashups});
+          .then((animals) => {
+            this.setState({animals});
           });
       })
       .catch((errr) => {
